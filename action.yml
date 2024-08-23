@@ -1,0 +1,24 @@
+name: "@appwarden/deploy-cloudflare"
+branding:
+  icon: cloud
+  color: orange
+description: Install Appwarden on your Cloudflare-protected domain from Github Actions
+author: Appwarden <https://github.com/appwarden>
+inputs:
+  debug:
+    description: Enable debug mode. Defaults to 'false'.
+    default: false
+  hostname:
+    required: true
+    type: string
+    description: The hostname of your Appwarden-protected domain
+  cloudflare-account-id:
+    required: true
+    type: string
+    description: Cloudflare account id
+  environment:
+    description: Provide 'production' or 'staging'. Defaults to 'production'.
+    default: "production"
+runs:
+  using: node20
+  main: dist/index.mjs

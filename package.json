@@ -1,0 +1,52 @@
+{
+  "name": "@appwarden/cloudflare-middleware-action",
+  "version": "1.1.71",
+  "description": "Easy-to-use GitHub Action to build Appwarden for deployment to your Cloudflare domain",
+  "type": "module",
+  "author": "support@appwarden.io",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/build-cloudflare/issues"
+  },
+  "homepage": "https://github.com/build-cloudflare#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/build-cloudflare.git"
+  },
+  "keywords": [
+    "appwarden",
+    "github actions",
+    "web3",
+    "web security"
+  ],
+  "main": "dist/index.mjs",
+  "files": [
+    "dist",
+    "action.yml"
+  ],
+  "scripts": {
+    "build": "npm run build:action && mv ./dist/index.js ./dist/index.mjs",
+    "build:action": "npx ncc build ./src/index.ts",
+    "test": "vitest",
+    "format": "prettier --write .",
+    "check": "prettier --check ."
+  },
+  "dependencies": {
+    "@actions/core": "^1.10.1",
+    "@actions/exec": "^1.1.1",
+    "jsesc": "^3.0.2",
+    "yaml": "2.4.5",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@changesets/changelog-github": "^0.4.8",
+    "@changesets/cli": "^2.26.2",
+    "@cloudflare/workers-types": "^4.20231121.0",
+    "@types/node": "^20.10.4",
+    "@vercel/ncc": "^0.38.1",
+    "prettier": "^3.1.0",
+    "semver": "^7.5.4",
+    "typescript": "^5.3.3",
+    "vitest": "^1.0.3"
+  }
+}
