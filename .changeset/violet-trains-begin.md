@@ -1,5 +1,5 @@
 ---
-"@appwarden/deploy-cloudflare": patch
+"@appwarden/build-cloudflare-middleware-action": patch
 ---
 
 testing releases

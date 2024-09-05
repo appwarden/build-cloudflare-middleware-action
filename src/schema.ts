@@ -53,9 +53,6 @@ export const ConfigSchema = z
     hostname: z.string(),
     lockPageSlug: z.string(),
     cloudflareAccountId: z.string(),
-    environment: z
-      .union([z.literal("production"), z.literal("staging")])
-      .default("production"),
     debug: OptionalBooleanSchema.default(false),
     cspEnforced: OptionalBooleanSchema,
     cspDirectives: z

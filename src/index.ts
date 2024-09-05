@@ -126,7 +126,6 @@ async function main() {
   const maybeConfig = ConfigSchema.safeParse({
     hostname,
     debug: core.getInput("debug"),
-    environment: core.getInput("environment"),
     cloudflareAccountId: core.getInput("cloudflare-account-id"),
     cspEnforced: hostnameConfiguration?.options?.["csp-enforced"],
     cspDirectives: hostnameConfiguration?.options?.["csp-directives"],
@@ -206,25 +205,6 @@ async function main() {
     debug(`Generated ${fileName}:\n ${fileContent}`)
   }
 
-  // install npm dependencies
-
-  // const npm = getPackageManager()
-  // debug(`Installing @appwarden/app dependencies with ${npm.install}`)
-
-  // try {
-  //   await exec(npm.install, undefined, { cwd: middlewareDir })
-  // } catch (error) {
-  //   if (
-  //     error instanceof Error &&
-  //     error.message.includes("Unable to locate executable file")
-  //   ) {
-  //     return core.setFailed(
-  //       `Unable to locate executable file: ${npm.name}. Did you forget to install it?`,
-  //     )
-  //   }
-  // }
-
-  // debug(`Installed @appwarden/app dependencies`)
 
   const files = await readdir(middlewareDir)
   debug(`✅ Generated ${files.toString().split(",").join(", ")}`)
